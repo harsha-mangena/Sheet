@@ -1,7 +1,7 @@
 package LinkedList;
 
 class RemoveDuplicatesInASortedList{
-    public static Node removeDuplicates(Node node){
+    public Node removeDuplicates(Node node){
         //Edge Case
         if(node==null || node.next==null){
             return node;
