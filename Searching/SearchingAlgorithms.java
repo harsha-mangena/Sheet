@@ -3,7 +3,7 @@ package Searching;
 public class SearchingAlgorithms {
 
     /***
-     * Linear search algorithm
+     * Linear search algorithm -> O(N)
      * @param array
      * @param key
      * @return
@@ -23,7 +23,7 @@ public class SearchingAlgorithms {
     }
 
     /**
-     * Binary Search Algorithm
+     * Binary Search Algorithm - O(log2(N))
      * @param array
      * @param key
      * @return
@@ -54,7 +54,7 @@ public class SearchingAlgorithms {
     }
 
     /**
-     * Jump Search Algorithm
+     * Jump Search Algorithm -> O(N**0.5)
      * @param array
      * @param key
      * @return
@@ -86,4 +86,75 @@ public class SearchingAlgorithms {
         return false;
     }
 
+    /**
+     * Ternary Search Algorithm -> O(log(3) N)
+     * @param array
+     * @param key
+     * @return
+     */
+
+    public int ternarySearchInArray(int[] array, int key){
+        //Edge Case
+        if(array.length==0) return -1;
+
+        int l=0, r=array.length-1;
+        int mid1=0, mid2=0;
+
+        while(r >= l){
+            mid1 = l+(r-l)/3;
+            mid2 = r-(r-l)/3;
+
+            if(array[mid1]==key) return mid1;
+
+            if(array[mid2]==key) return mid2;
+
+            //Checking in between ranges.
+            if(array[mid1] > key){
+                r=mid1-1;
+            }
+
+            else if(array[mid2] < key){
+                l=mid2+1;
+            }
+
+            else{
+                l=mid1+1;
+                r=mid2-1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Interpolation Search Algorithm -> O(log(log(N)))
+     * @param array
+     * @param key
+     * @return 
+     * Formuale : pos = lo + (x - arr[lo]) *(hi - lo)/(arr[hi] - arr[lo])
+     */
+
+    public int interpolationSearchInArray(int[] array, int key){
+        //Edge case
+        if(array.length==0) return -1;
+
+        int l=0, r=array.length-1;
+        int pos=0;
+
+        while(r >= l){
+            pos = l + (((r - l) / (array[r] - array[l]))
+                  * (key - array[l]));
+
+            if(array[pos]==key) return pos;
+
+            else if(array[pos] > key){
+                r=pos-1;
+            }
+
+            else{
+                l=pos+1;
+            }
+        }
+        
+        return -1;
+    }
 }
