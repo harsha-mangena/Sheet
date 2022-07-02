@@ -77,6 +77,4 @@ class MiddleOfLinkedlist {
 
         return dummy;
     }
-
-
 }
