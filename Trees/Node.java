@@ -2,9 +2,9 @@ package Trees;
 
 public class Node {
 
-    private int value;
-    private Node left;
-    private Node right;
+    public int value;
+    public Node left;
+    public Node right;
 
     public Node(){}
 
