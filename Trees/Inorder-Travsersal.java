@@ -43,6 +43,11 @@ class InorderTravsersal {
         return result;
     }
 
+    /**
+     * inOrder Traversal Using Recursion
+     * @param node
+     * @return
+     */
     public List<Integer> inOrderTraversalsUsingRecursion(Node node){
         List<Integer> result = new ArrayList<Integer>();
 
