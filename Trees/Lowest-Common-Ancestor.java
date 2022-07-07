@@ -29,5 +29,29 @@ class LowestCommonAncestor {
 
         return null;
     } 
+
+    /**
+     * Efficient 
+     */
+    public Node LCA(Node root, Node node1, Node node2){
+        if(root==null || root==node1 || root==node2){
+            return root;
+        }
+
+        Node leftTree = LCA(root.left, node1, node2);
+        Node rightTree = LCA(root.right, node1, node2);
+
+        if(leftTree==null){
+            return rightTree;
+        }
+
+        if(rightTree==null){
+            return  leftTree;
+        }
+
+        else{
+            return root;
+        }
+    }
     
 }
