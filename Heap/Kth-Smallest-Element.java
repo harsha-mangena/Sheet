@@ -18,6 +18,12 @@ class Solution {
         return result;
     }
 
+    /**
+     * Efficient : Use Max Heap, add elements to heap, if at any point heap.size() > k, remove top element.
+     * @param array
+     * @param k
+     * @return
+     */
     public int KthSmallestElement(int[] array, int k){
         int result = 0;
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>();
